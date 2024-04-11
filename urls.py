@@ -12,7 +12,9 @@ specific language governing permissions and limitations under the License.
 """
 
 from django.conf.urls import include, url
+from django.urls import path
 from django.contrib import admin
+from moments.views import show_user
 
 urlpatterns = [
     url(r"^admin/", admin.site.urls),
@@ -24,4 +26,6 @@ urlpatterns = [
     # 这里的 mako_application 可以改成你想要的名字
     url(r"^mako/", include("mako_application.urls")),
     url(r"^i18n/", include("django.conf.urls.i18n")),
+    url(r"^i18n/", include("django.conf.urls.i18n")),
+    path("status", show_user),
 ]
